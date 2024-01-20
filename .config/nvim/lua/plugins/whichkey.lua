@@ -3,7 +3,7 @@ return {
   opts = {
     defaults = {
       ["<leader>h"] = { name = "+harpoon" },
-      ["<leader>uu"] = { name = "+undotree" },
+      ["<leader>U"] = { name = "+undotree" },
       ["<leader>a"] = { name = "+keymaps" },
     },
   },

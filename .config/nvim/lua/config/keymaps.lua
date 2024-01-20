@@ -43,7 +43,7 @@ vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>cs", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- undotree
-vim.keymap.set("n", "<leader>uu", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle)
 
 -- copy current buffer absolute filepath to system clipboard
 vim.keymap.set("n", "<leader>ac", ':let @+ = expand("%:p")<CR>')
