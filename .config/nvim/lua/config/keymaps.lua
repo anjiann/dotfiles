@@ -16,10 +16,6 @@ vim.opt.incsearch = true
 
 vim.opt.scrolloff = 8
 
--- move highlighted visual blocks up and down and autoindent with if statement
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
 -- allow cursor to remain same place when using J
 vim.keymap.set("n", "J", "mzJ`z")
 
