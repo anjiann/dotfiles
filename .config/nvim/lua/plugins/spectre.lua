@@ -3,7 +3,7 @@ return {
   -- build = false,
   cmd = "Spectre",
   opts = { open_cmd = "noswapfile vnew" },
-  -- tstylua: ignore
+  -- stylua: ignore
   keys = {
     {
       "<leader>sr",
