@@ -15,3 +15,5 @@ vim.filetype.add({
     ["%.env%.[%w_.-]+"] = "sh",
   },
 })
+
+vim.g.lazyvim_python_ruff = "ruff"
