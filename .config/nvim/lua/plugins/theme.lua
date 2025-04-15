@@ -9,15 +9,5 @@ return {
       sidebars = "transparent",
       floats = "transparent",
     },
-    -- on_highlights = function(highlights, colors)
-    --   highlights.SpectreSearch = {
-    --     bg = colors.yellow,
-    --     fg = colors.black,
-    --   }
-    --   highlights.SpectreReplace = {
-    --     bg = colors.red,
-    --     fg = colors.black,
-    --   }
-    -- end,
   },
 }

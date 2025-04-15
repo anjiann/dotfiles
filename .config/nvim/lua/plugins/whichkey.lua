@@ -1,10 +1,10 @@
 return {
   "folke/which-key.nvim",
   opts = {
-    defaults = {
-      ["<leader>h"] = { name = "+harpoon" },
-      ["<leader>U"] = { name = "+undotree" },
-      ["<leader>a"] = { name = "+keymaps" },
+    spec = {
+      { "<leader>U", group = "undotree" },
+      { "<leader>a", group = "keymaps" },
+      { "<leader>h", group = "harpoon" },
     },
   },
 }

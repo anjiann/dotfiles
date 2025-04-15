@@ -23,7 +23,7 @@ return {
             },
           },
         },
-        on_attach = {},
+        on_attach = function() end,
       },
       ruff_lsp = {},
     },
