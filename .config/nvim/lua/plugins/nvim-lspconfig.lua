@@ -26,6 +26,23 @@ return {
         on_attach = function() end,
       },
       ruff_lsp = {},
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              -- Disable overlapping features with pyright/ruff
+              pycodestyle = { enabled = false },
+              mccabe = { enabled = false },
+              pyflakes = { enabled = false },
+              flake8 = { enabled = false },
+              -- Enable rope for refactoring
+              rope_autoimport = { enabled = true },
+              rope_completion = { enabled = true },
+              rope_rename = { enabled = true },
+            }
+          }
+        }
+      }
     },
   },
 }
