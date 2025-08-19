@@ -33,7 +33,7 @@ return {
         max_lines = 0, -- How many lines the window should span. 0 = infinite
         min_window_height = 0, -- Minimum editor window height to enable context
         line_numbers = true, -- Show line numbers
-        multiline_threshold = 20, -- Maximum number of lines to show for a single context
+        multiline_threshold = 1, -- Maximum number of lines to show for a single context
         trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
         mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
         separator = nil, -- Separator between context and content. e.g. "-". Set to nil to disable

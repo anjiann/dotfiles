@@ -1,9 +1,7 @@
 return {
-  -- change nvim-lspconfig options
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
-      -- https://github.com/microsoft/pyright/discussions/5852#discussioncomment-6874502
       pyright = {
         capabilities = {
           textDocument = {
@@ -23,26 +21,38 @@ return {
             },
           },
         },
-        on_attach = function() end,
+        on_attach = function(client, _)
+          -- disable pyright formatting so only ruff handles it
+          client.server_capabilities.documentFormattingProvider = false
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end,
       },
-      ruff_lsp = {},
+      ruff_lsp = {
+        on_attach = function(client, _)
+          -- ensure ruff does provide formatting
+          client.server_capabilities.documentFormattingProvider = true
+        end,
+      },
       pylsp = {
         settings = {
           pylsp = {
             plugins = {
-              -- Disable overlapping features with pyright/ruff
               pycodestyle = { enabled = false },
               mccabe = { enabled = false },
               pyflakes = { enabled = false },
               flake8 = { enabled = false },
-              -- Enable rope for refactoring
               rope_autoimport = { enabled = true },
               rope_completion = { enabled = true },
               rope_rename = { enabled = true },
-            }
-          }
-        }
-      }
+            },
+          },
+        },
+        on_attach = function(client, _)
+          -- disable pylsp formatting too
+          client.server_capabilities.documentFormattingProvider = false
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end,
+      },
     },
   },
 }
