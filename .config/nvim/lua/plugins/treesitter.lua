@@ -41,5 +41,14 @@ return {
         on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
       })
     end,
+    opts = function(_, opts)
+      -- Ensure existing parsers are kept
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, {
+        "html",
+        "htmldjango",
+        "python",
+      })
+    end,
   },
 }

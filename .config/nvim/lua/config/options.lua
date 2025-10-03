@@ -17,3 +17,4 @@ vim.filetype.add({
 })
 
 -- vim.g.lazyvim_python_ruff = "ruff"
+vim.env.ROPE_HOME = vim.fn.expand("~/.cache/rope")

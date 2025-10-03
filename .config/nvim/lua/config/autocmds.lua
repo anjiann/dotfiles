@@ -5,7 +5,6 @@
 -- So I can stop wondering my changes aren't working >:(
 vim.api.nvim_create_autocmd("FocusLost", { pattern = "*", command = "silent! wa" })
 
-
 -- This table will act as our LIFO (Last-In, First-Out) undo stack.
 -- It's defined at the top level of the module to persist between commands.
 local qf_undo_stack = {}
@@ -60,5 +59,12 @@ vim.api.nvim_create_autocmd("FileType", {
       -- Move the cursor to the line that was just restored
       vim.api.nvim_win_set_cursor(0, { last_action.index, 0 })
     end, { buffer = buffer_nr, silent = true, desc = "Undo quickfix item removal" })
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "*.jinja", "*.jinja2", "*.html" },
+  callback = function()
+    vim.bo.filetype = "htmldjango"
   end,
 })
