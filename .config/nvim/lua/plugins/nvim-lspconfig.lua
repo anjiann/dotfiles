@@ -25,6 +25,9 @@ return {
           -- disable pyright formatting so only ruff handles it
           client.server_capabilities.documentFormattingProvider = false
           client.server_capabilities.documentRangeFormattingProvider = false
+
+          -- 🚫 disable rename so pylsp handles it instead
+          client.server_capabilities.renameProvider = false
         end,
       },
       ruff_lsp = {
