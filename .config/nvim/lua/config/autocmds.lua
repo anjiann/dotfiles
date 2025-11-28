@@ -2,9 +2,6 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- So I can stop wondering my changes aren't working >:(
-vim.api.nvim_create_autocmd("FocusLost", { pattern = "*", command = "silent! wa" })
-
 -- This table will act as our LIFO (Last-In, First-Out) undo stack.
 -- It's defined at the top level of the module to persist between commands.
 local qf_undo_stack = {}

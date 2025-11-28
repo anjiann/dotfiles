@@ -43,3 +43,7 @@ vim.keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle)
 
 -- copy current buffer absolute filepath to system clipboard
 vim.keymap.set("n", "<leader>ac", ':let @+ = expand("%:p")<CR>')
+
+-- Python
+vim.g.lazyvim_python_lsp = "ruff"
+vim.g.lazyvim_python_ruff = "ruff"
