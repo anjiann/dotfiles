@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+msg="$*"
+
+# Try to get the TTY - from tmux pane first, then /dev/tty
+if [ -n "$TMUX" ]; then
+  tty_device=$(tmux display-message -p '#{pane_tty}' 2>/dev/null)
+elif [ -c /dev/tty ] && [ -w /dev/tty ]; then
+  tty_device="/dev/tty"
+fi
+
+if [ -n "$TMUX" ]; then
+  # tmux passthrough → kitty OSC 99
+  escape_seq=$(printf '\033Ptmux;\033\033]99;;%s\033\033\\\033\\' "$msg")
+else
+  # direct kitty
+  escape_seq=$(printf '\x1b]99;;%s\x1b\\' "$msg")
+fi
+
+# Write to TTY device if found, otherwise stdout
+if [ -n "$tty_device" ] && [ -w "$tty_device" ]; then
+  printf '%s' "$escape_seq" >"$tty_device"
+else
+  printf '%s' "$escape_seq"
+fi
